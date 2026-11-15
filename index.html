@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direto MEI</title>
+<meta name="description" content="A guia do DAS no WhatsApp todo mês, com lembrete, e a declaração anual assistida. R$ 19,90 por mês.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123a36'/%3E%3Crect x='14' y='18' width='36' height='32' rx='6' fill='%23fff'/%3E%3Crect x='14' y='18' width='36' height='10' rx='5' fill='%23f6b92b'/%3E%3Cpath d='M23 40l6 6 12-13' fill='none' stroke='%23123a36' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: faixa de fita-crepe amarela como assinatura; seções em colunas assimétricas, fundo claro, verde-petróleo e amarelo. */
+:root{
+  --ink:#123a36;
+  --ink-2:#2c5a55;
+  --tape:#f6b92b;
+  --tape-soft:#fdf0cc;
+  --paper:#fbfaf5;
+  --card:#ffffff;
+  --line:#e3e0d4;
+  --muted:#58655f;
+  --wa:#dcf4d3;
+  --danger:#b3412b;
+  --ok:#1f7a4d;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#e8f3ef;--ink-2:#b9d3cc;--tape:#f6b92b;--tape-soft:#3a3118;
+    --paper:#0f1c1a;--card:#162826;--line:#2a403c;--muted:#9bb0aa;--wa:#1d4a2f;
+    --danger:#ee8a72;--ok:#6fd49c;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e8f3ef;--ink-2:#b9d3cc;--tape:#f6b92b;--tape-soft:#3a3118;
+  --paper:#0f1c1a;--card:#162826;--line:#2a403c;--muted:#9bb0aa;--wa:#1d4a2f;
+  --danger:#ee8a72;--ok:#6fd49c;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,6vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--tape);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 1rem var(--body);padding:14px 22px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn.tape{background:var(--tape);border-color:var(--tape);color:#123a36}
+.btn.ghost{background:transparent;color:var(--ink)}
+.eyebrow{font:700 .8rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.stripe{height:14px;background:repeating-linear-gradient(-45deg,var(--tape) 0 14px,transparent 14px 28px);opacity:.9}
+
+/* topo */
+header{padding-top:env(safe-area-inset-top);position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:40px;height:40px;flex:none}
+.logo b{font:800 1.35rem var(--display);letter-spacing:-.02em}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{text-decoration:underline;text-decoration-color:var(--tape);text-decoration-thickness:3px;text-underline-offset:5px}
+@media(max-width:760px){nav a.hide{display:none}}
+
+/* hero */
+.hero{padding:56px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero p.lead{font-size:1.2rem;color:var(--muted);margin:22px 0 28px;max-width:34em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero small{display:block;margin-top:16px;color:var(--muted);font-size:.9rem}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:36px}}
+
+/* celular */
+.phone{width:min(100%,340px);margin:0 auto;border-radius:34px;background:#0c1f1d;padding:10px;box-shadow:0 24px 50px -20px rgba(18,58,54,.55)}
+.screen{border-radius:26px;overflow:hidden;background:#ece5d8;display:flex;flex-direction:column;min-height:470px}
+.wa-head{background:#0f5a4d;color:#fff;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.wa-head svg{width:34px;height:34px}
+.wa-head b{display:block;font-size:.95rem;line-height:1.1}
+.wa-head span{font-size:.75rem;opacity:.8}
+.chat{padding:14px 12px;display:flex;flex-direction:column;gap:8px;flex:1;font-size:.9rem;line-height:1.4;color:#1c2b27}
+.msg{max-width:86%;padding:8px 11px;border-radius:12px;background:#fff;align-self:flex-start;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.msg.me{align-self:flex-end;background:#dcf4d3}
+.msg small{display:block;text-align:right;font-size:.68rem;color:#6b7a75;margin-top:2px}
+.msg .pdf{display:flex;gap:8px;align-items:center;background:#f3efe3;border-radius:8px;padding:8px;margin-bottom:6px}
+.msg .pdf svg{width:26px;height:26px;flex:none}
+.msg .pdf em{font-style:normal;font-size:.78rem;display:block;color:#5a6a65}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.tab{font:600 .82rem var(--body);padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* seções */
+section{padding:72px 0}
+.sec-head{max-width:40em;margin-bottom:36px}
+.sec-head p{color:var(--muted);margin-top:12px;font-size:1.08rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:24px}
+.step .ico{width:52px;height:52px;border-radius:14px;background:var(--tape-soft);display:grid;place-items:center;margin-bottom:16px}
+.step .ico svg{width:30px;height:30px}
+.step p{color:var(--muted);margin-top:8px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+
+.plan{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border:2px solid var(--ink);border-radius:24px;overflow:hidden;background:var(--card)}
+.plan .price{background:var(--tape);color:#123a36;padding:36px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.plan .price b{font:800 4rem var(--display);line-height:1;letter-spacing:-.03em}
+.plan .price b span{font-size:1.1rem;font-weight:600;letter-spacing:0}
+.plan .price p{font-weight:500}
+.plan .price .btn{align-self:flex-start;margin-top:10px;background:#123a36;border-color:#123a36;color:#fff}
+.plan table{width:100%;border-collapse:collapse}
+.plan td{padding:15px 22px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.97rem}
+.plan tr:last-child td{border-bottom:0}
+.plan td:first-child{font-weight:700;width:36%}
+.plan td span{color:var(--muted)}
+.soon{display:inline-block;font:700 .7rem var(--body);background:var(--tape-soft);padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+@media(max-width:820px){.plan{grid-template-columns:1fr}.plan td:first-child{width:auto}}
+.compare{margin-top:18px;color:var(--muted);font-size:.95rem}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:28px}
+.calc form{display:grid;gap:16px;align-content:start}
+label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+input,select{font:500 1rem var(--body);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.result{background:var(--paper);border-radius:18px;padding:22px;border:1.5px solid var(--line);display:grid;gap:14px;align-content:start}
+.meter{height:16px;border-radius:99px;background:var(--line);overflow:hidden;position:relative}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--ok);border-radius:99px;transition:width .4s}
+.meter i.warn{background:var(--tape)}.meter i.bad{background:var(--danger)}
+.result .big{font:800 2.4rem var(--display);line-height:1}
+.result dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:.95rem}
+.result dt{color:var(--muted)}.result dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.verdict{padding:12px 14px;border-radius:12px;font-weight:600;font-size:.95rem;background:var(--tape-soft)}
+.verdict.ok{background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.verdict.bad{background:color-mix(in srgb,var(--danger) 16%,transparent)}
+@media(max-width:820px){.calc{grid-template-columns:1fr;padding:20px}}
+
+/* assistente */
+.ask{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+.chips{display:flex;flex-direction:column;gap:10px}
+.chip{text-align:left;font:600 .98rem var(--body);padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--ink);box-shadow:4px 4px 0 var(--tape)}
+.answer{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:22px;min-height:180px}
+.answer b{display:block;margin-bottom:8px;font-family:var(--display);font-size:1.1rem}
+.answer p+p{margin-top:10px}
+.answer p{color:var(--muted)}
+@media(max-width:820px){.ask{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1.5px solid var(--line);padding:18px 0}
+details:first-of-type{border-top:1.5px solid var(--line)}
+summary{font:700 1.08rem var(--display);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--ink-2)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--muted);max-width:46em}
+
+/* cadastro */
+.signup{background:var(--tape-soft);border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.signup form{display:grid;gap:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:.9rem}
+.check input{width:20px;height:20px;margin-top:2px;flex:none}
+.done{display:none;background:var(--card);border-radius:18px;padding:24px;border:2px solid var(--ink)}
+.done.show{display:block}
+.note{font-size:.85rem;color:var(--muted)}
+@media(max-width:820px){.signup{grid-template-columns:1fr;padding:24px}}
+
+footer{padding:40px 0 56px;border-top:1.5px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:grid;gap:12px}
+
+/* Mobile e leitura: texto grande, contraste alto, alvos de toque de 48px, nada cortado ou só com parte destacada */
+body{font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
+:root{--muted:#3f4d48}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#b6c8c2}}
+:root[data-theme="dark"]{--muted:#b6c8c2}
+h1{font-size:clamp(2.2rem,9vw,3.9rem);overflow-wrap:break-word}
+.btn{min-height:52px;font-size:1.05rem;justify-content:center;text-align:center}
+.tab{min-height:44px;font-size:.95rem;padding:9px 16px}
+.chip{min-height:52px;font-size:1.05rem}
+input,select{font-size:18px;min-height:52px}
+.eyebrow{font-size:.85rem}
+.msg{font-size:1rem}
+.note,.compare,footer{font-size:1rem}
+details summary{min-height:48px;align-items:center;font-size:1.15rem}
+.stripe{height:10px}
+.sticky{display:none}
+@media(max-width:760px){
+  body{padding-bottom:84px}
+  .wrap{padding:0 18px}
+  section{padding:48px 0}
+  .hero{padding:28px 0 40px}
+  .hero-grid{gap:32px}
+  .hero p.lead{font-size:1.15rem}
+  .hero .cta{flex-direction:column}
+  .hero .cta .btn{width:100%}
+  .logo svg{width:44px;height:44px}
+  .logo b{font-size:1.5rem}
+  header .btn{display:none}
+  .bar{padding:10px 0}
+  .phone{width:100%;max-width:360px}
+  .tabs{gap:8px}
+  .tab{flex:1 1 auto;padding:9px 10px}
+  .plan .price{padding:28px 22px}
+  .plan .price b{font-size:3.4rem}
+  .plan .price .btn{align-self:stretch}
+  .plan table,.plan tbody,.plan tr,.plan td{display:block;width:100%}
+  .plan tr{padding:16px 22px;border-bottom:1px solid var(--line)}
+  .plan tr:last-child{border-bottom:0}
+  .plan td{padding:0;border:0}
+  .plan td:first-child{width:100%;margin-bottom:4px;font-size:1.05rem}
+  .signup{padding:24px 18px;border-radius:22px}
+  .signup .row2,.calc .row2{grid-template-columns:1fr}
+  .signup .btn{width:100%}
+  .check input{width:26px;height:26px}
+  .sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:var(--paper);border-top:2px solid var(--ink)}
+  .sticky .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- Ícones e logo (primitivos SVG) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="16" fill="#123a36"/>
+    <rect x="14" y="18" width="36" height="32" rx="6" fill="#fff"/>
+    <rect x="14" y="18" width="36" height="10" rx="5" fill="#f6b92b"/>
+    <rect x="14" y="23" width="36" height="5" fill="#f6b92b"/>
+    <rect x="21" y="12" width="4" height="10" rx="2" fill="#fff"/>
+    <rect x="39" y="12" width="4" height="10" rx="2" fill="#fff"/>
+    <path d="M23 40l6 6 12-13" fill="none" stroke="#123a36" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 32 32"><path d="M6 6h20a3 3 0 013 3v11a3 3 0 01-3 3H15l-6 5v-5H6a3 3 0 01-3-3V9a3 3 0 013-3z" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linejoin="round"/><circle cx="10" cy="14.5" r="1.8" fill="#123a36"/><circle cx="16" cy="14.5" r="1.8" fill="#123a36"/><circle cx="22" cy="14.5" r="1.8" fill="#123a36"/></symbol>
+  <symbol id="i-id" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#123a36" stroke-width="2.4"/><circle cx="11" cy="15" r="3" fill="none" stroke="#123a36" stroke-width="2.4"/><path d="M7 22c1-3 7-3 8 0M19 13h6M19 18h5" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 32 32"><path d="M7 23h18l-2-3v-6a7 7 0 00-14 0v6z" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linejoin="round"/><path d="M13 26a3 3 0 006 0" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#f6b92b"/><path d="M7 12.5l3.5 3.5L17 9" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pdf" viewBox="0 0 28 28"><path d="M6 2h11l6 6v18H6z" fill="#fff" stroke="#c0392b" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 2v6h6" fill="none" stroke="#c0392b" stroke-width="1.6"/><rect x="9" y="15" width="11" height="5" rx="1" fill="#c0392b"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#topo" aria-label="Direto MEI, início">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <b>Direto MEI</b>
+    </a>
+    <nav aria-label="Principal">
+      <a class="hide" href="#como">Como funciona</a>
+      <a class="hide" href="#calculadora">Calculadora</a>
+      <a class="hide" href="#faq">Dúvidas</a>
+      <a class="btn tape" href="#assinar" style="padding:10px 18px">Assinar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+<div class="stripe" aria-hidden="true"></div>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Para MEI sem tempo de olhar imposto</p>
+      <h1 style="margin-top:12px">Seu MEI em dia, direto no WhatsApp.</h1>
+      <p class="lead">A gente manda a guia do DAS no seu WhatsApp todo mês, avisa antes de vencer e cuida da declaração anual com você. Você não precisa entrar em nenhum site.</p>
+      <div class="cta">
+        <a class="btn tape" href="#assinar">Assinar por R$ 19,90 por mês</a>
+        <a class="btn ghost" href="#plano">Ver o que inclui</a>
+      </div>
+      <small>Um plano só, sem fidelidade. Cuida da rotina que o MEI costuma esquecer.</small>
+    </div>
+
+    <div>
+      <div class="phone" aria-label="Exemplo de conversa no WhatsApp">
+        <div class="screen">
+          <div class="wa-head">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#logo"/></svg>
+            <div><b>Direto MEI</b><span>conta comercial</span></div>
+          </div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Cenas da conversa" id="tabs">
+        <button class="tab" role="tab" aria-selected="true" data-k="guia">Guia do mês</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="fat">Faturamento</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="dasn">Declaração</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="como" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Três passos</p>
+      <h2 style="margin-top:10px">Mande o CNPJ. O resto chega no zap.</h2>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
+        <h3>1. Mande seu CNPJ</h3>
+        <p>A gente vê se ele está ativo ou inapto e quanto é o seu DAS.</p>
+      </article>
+      <article class="step">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-id"/></svg></div>
+        <h3>2. Confirme que é o seu</h3>
+        <p>Conferimos o CNPJ antes de gerar a guia. Para parar de receber, escreva SAIR.</p>
+      </article>
+      <article class="step">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-bell"/></svg></div>
+        <h3>3. Receba a guia todo mês</h3>
+        <p>Pix ou código de barras, com aviso antes de vencer. Em janeiro, a declaração anual, que só pede o faturamento do ano.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="plano">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Plano Essencial</p>
+      <h2 style="margin-top:10px">Um plano só. Cerca de 23% do valor do seu DAS.</h2>
+    </div>
+    <div class="plan">
+      <div class="price">
+        <span class="eyebrow" style="color:#123a36">Essencial</span>
+        <b>R$ 19,90<span> /mês</span></b>
+        <p>Sem fidelidade e sem multa. Preço de lançamento: limites e termos finais saem de um piloto com MEIs de verdade.</p>
+        <a class="btn" href="#assinar">Assinar</a>
+      </div>
+      <table>
+        <tbody>
+          <tr><td>Guia do DAS</td><td><span>Chega com Pix ou código de barras. Aviso 5 dias antes, 1 dia antes e no dia, e confirmação quando paga.</span></td></tr>
+          <tr><td>Radar do CNPJ</td><td><span>Situação (ativo ou inapto), desde quando e o valor do DAS da atividade. Se algo está errado, diz o que fazer.</span></td></tr>
+          <tr><td>Declaração anual</td><td><span>Pede só um número, o faturamento do ano. Deixamos pronto e levamos até a entrega, até 31 de maio.</span></td></tr>
+          <tr><td>Faturamento do mês</td><td><span>Uma mensagem no fim do mês. É opcional: se esquecer, nada trava. Avisa quando chega perto do limite.</span></td></tr>
+          <tr><td>Calculadora do limite</td><td><span>Quanto dos R$ 110 mil de 2027 você já usou e o ritmo do ano.</span></td></tr>
+          <tr><td>Atendimento</td><td><span>IA para dúvidas por texto ou áudio. Funcionário, mudança de atividade ou dívida ativa vão para uma pessoa.</span></td></tr>
+          <tr><td>Regularização <em class="soon">em breve</em></td><td><span>Levantar a dívida, juntar vários meses numa guia só e ajudar a entregar declarações em atraso.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare">Para comparar: o ZAP MEI custa R$ 49,90 e inclui nota fiscal. O Essencial faz menos e custa menos.</p>
+  </div>
+</section>
+
+<section id="calculadora" style="background:var(--tape-soft)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Calculadora</p>
+      <h2 style="margin-top:10px">Você está perto do limite de R$ 110 mil?</h2>
+      <p>Conta simples com o limite de 2027 e o DAS de 2026. Não cobre quem abriu o MEI no meio do ano.</p>
+    </div>
+    <div class="calc">
+      <form id="calc" novalidate>
+        <label for="tipo">Tipo de atividade
+          <select id="tipo">
+            <option value="82.05">Comércio ou indústria (DAS R$ 82,05)</option>
+            <option value="86.05" selected>Serviços (DAS R$ 86,05)</option>
+            <option value="87.05">Comércio e serviços (DAS R$ 87,05)</option>
+          </select>
+        </label>
+        <div class="row2">
+          <label for="mes">Mês atual
+            <select id="mes"></select>
+          </label>
+          <label for="fat">Faturado desde janeiro (R$)
+            <input id="fat" type="number" inputmode="decimal" min="0" step="100" value="42000">
+          </label>
+        </div>
+      </form>
+      <div class="result" aria-live="polite">
+        <div><div class="big" id="pct">0%</div><span class="note">do limite já usado</span></div>
+        <div class="meter" aria-hidden="true"><i id="bar" style="width:0"></i></div>
+        <dl>
+          <dt>Ritmo por mês</dt><dd id="ritmo">-</dd>
+          <dt>Projeção do ano</dt><dd id="proj">-</dd>
+          <dt>DAS mensal (vence dia 20)</dt><dd id="das">-</dd>
+        </dl>
+        <div class="verdict" id="verdict"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="assistente">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Atendimento por IA</p>
+      <h2 style="margin-top:10px">Pergunte como se fosse no zap.</h2>
+      <p>Exemplos de respostas. Dúvida que não casa com nada vai para uma pessoa da equipe.</p>
+    </div>
+    <div class="ask">
+      <div class="chips" id="chips"></div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Perguntas frequentes</p><h2 style="margin-top:10px">O que todo MEI pergunta.</h2></div>
+    <div style="max-width:820px">
+      <details><summary>Preciso de contador para ser MEI?</summary><p>Não. Mas você precisa pagar o DAS todo mês, entregar a declaração anual até 31 de maio, registrar as receitas, emitir nota para empresas e guardar os documentos por 5 anos. É essa rotina que o serviço cuida.</p></details>
+      <details><summary>Vocês substituem um contador?</summary><p>Não. Não fazemos contabilidade de empresa maior, folha de pagamento nem imposto de renda. Se você passar do limite ou contratar funcionário, indicamos um contador parceiro.</p></details>
+      <details><summary>Como a guia chega pronta no WhatsApp?</summary><p>A gente confere se o CNPJ é o seu, gera a guia no site oficial da Receita (o PGMEI) e manda o PDF com Pix ou código de barras. Por enquanto uma pessoa da equipe faz esse passo. Com mais clientes, ele passa a ser automático.</p></details>
+      <details><summary>Quem entrega a declaração anual?</summary><p>A declaração só pede o faturamento do ano. A entrega exige o seu acesso (gov.br ou código de acesso do Simples). Na primeira temporada, deixamos o número pronto e guiamos a entrega. Estamos validando se dá para entregar por você.</p></details>
+      <details><summary>E se meu CNPJ já estiver atrasado ou inapto?</summary><p>O Radar mostra se está inapto e desde quando. A ajuda completa para regularizar atrasados e inaptos é a próxima etapa do serviço.</p></details>
+      <details><summary>Vocês emitem nota fiscal?</summary><p>Por enquanto não: a emissão exige login gov.br ou certificado digital. A partir de 1º/1/2027 a nota passa a ser obrigatória em todas as vendas. Por ora, o serviço cuida da guia e da declaração.</p></details>
+      <details><summary>Meus dados estão seguros?</summary><p>Usamos só o necessário, dizemos de onde veio cada contato e você sai quando quiser escrevendo SAIR. Nesta página de demonstração nada sai do seu aparelho.</p></details>
+      <details><summary>Posso cancelar quando quiser?</summary><p>Esta é a proposta: sem fidelidade e sem multa. Os termos finais serão publicados antes da primeira cobrança de verdade.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="assinar" style="padding-top:24px">
+  <div class="wrap">
+    <div class="signup">
+      <div>
+        <p class="eyebrow">Assinar</p>
+        <h2 style="margin-top:10px">Comece com o seu CNPJ.</h2>
+        <p style="margin-top:14px;color:var(--muted)">Plano Essencial, R$ 19,90 por mês. Pagamento por Pix ou cartão de crédito, sem pedir dados de cartão aqui.</p>
+        <p class="note" style="margin-top:14px"><b>Demonstração.</b> Nada é enviado, guardado ou cobrado.</p>
+      </div>
+      <div>
+        <form id="signup" novalidate>
+          <label for="nome">Seu nome<input id="nome" autocomplete="name" placeholder="Marcos Silva"></label>
+          <div class="row2">
+            <label for="zap">WhatsApp com DDD<input id="zap" inputmode="tel" autocomplete="tel" placeholder="(21) 9 0000-0000"></label>
+            <label for="cnpj">CNPJ<input id="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></label>
+          </div>
+          <label for="pag">Forma de pagamento
+            <select id="pag"><option>Pix</option><option>Cartão de crédito</option></select>
+          </label>
+          <label class="check" for="ok"><input id="ok" type="checkbox"><span>Aceito receber mensagens do Direto MEI no WhatsApp. Posso parar a qualquer hora escrevendo SAIR.</span></label>
+          <button class="btn" type="submit">Assinar por R$ 19,90 por mês</button>
+          <p class="note" id="err" role="alert" style="color:var(--danger)"></p>
+        </form>
+        <div class="done" id="done" role="status">
+          <h3>Pronto, na demonstração.</h3>
+          <p style="margin-top:8px;color:var(--muted)">No serviço de verdade, a próxima mensagem chegaria no seu WhatsApp pedindo para confirmar o CNPJ. Nenhum dado foi enviado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="sticky"><a class="btn tape" href="#assinar">Assinar por R$ 19,90 por mês</a></div>
+
+<div class="stripe" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="logo"><svg aria-hidden="true"><use href="#logo"/></svg><b>Direto MEI</b></div>
+    <p>Esta página é uma demonstração: nenhuma cobrança real acontece. O serviço não é parecer jurídico nem tributário. Atualizado em 13/11/2026.</p>
+    <p>diretomei.com.br</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var brl=function(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})};
+
+  /* cenas do chat */
+  var cenas={
+    guia:[['in','Oi, Marcos! A guia do DAS de outubro já está pronta.',''],
+          ['in','<span class="pdf"><svg aria-hidden="true"><use href="#i-pdf"/></svg><span><b>DAS-outubro-2026.pdf</b><em>R$ 86,05 · vence 23/11</em></span></span>O dia 20 é feriado, então vence só na segunda, 23/11. Pix ou código de barras no PDF.',''],
+          ['me','Valeu, vou pagar hoje','']],
+    fat:[['in','Marcos, quanto você faturou em outubro? Pode mandar só o número.',''],
+         ['me','9.800','' ],
+         ['in','Anotado. Neste ano você está em R$ 71.400, cerca de 65% do limite. Seguimos de olho.','']],
+    dasn:[['in','Janeiro chegou. Falta a declaração anual do MEI, que vai até 31 de maio.',''],
+          ['in','Só preciso de um número: quanto você faturou no ano passado?',''],
+          ['me','98.500',''],
+          ['in','Pronto, deixei o número separado. Te guio na entrega passo a passo.','']]
+  };
+  var chat=document.getElementById('chat');
+  function cena(k){
+    chat.innerHTML='';
+    cenas[k].forEach(function(m){
+      var d=document.createElement('div');d.className='msg'+(m[0]==='me'?' me':'');
+      d.innerHTML=m[1]+'<small>'+(m[0]==='me'?'09:41 ✓✓':'09:40')+'</small>';
+      chat.appendChild(d);
+    });
+  }
+  cena('guia');
+  document.getElementById('tabs').addEventListener('click',function(e){
+    var b=e.target.closest('.tab');if(!b)return;
+    document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',t===b)});
+    cena(b.dataset.k);
+  });
+
+  /* calculadora */
+  var meses=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var sm=document.getElementById('mes');
+  meses.forEach(function(n,i){var o=document.createElement('option');o.value=i+1;o.textContent=n;sm.appendChild(o)});
+  sm.value=6;
+  var LIM=110000;
+  function calc(){
+    var mes=+sm.value,fat=Math.max(0,+document.getElementById('fat').value||0),das=+document.getElementById('tipo').value;
+    var ritmo=fat/mes,proj=ritmo*12,pct=fat/LIM*100,r=proj/LIM;
+    document.getElementById('pct').textContent=Math.round(pct)+'%';
+    var bar=document.getElementById('bar');bar.style.width=Math.min(100,pct)+'%';
+    bar.className=r>1?'bad':(r>=.8?'warn':'');
+    document.getElementById('ritmo').textContent=brl(ritmo);
+    document.getElementById('proj').textContent=brl(proj);
+    document.getElementById('das').textContent=brl(das);
+    var v=document.getElementById('verdict'),t,c='';
+    if(fat>LIM){t='Você já passou de R$ 110 mil. Passar do limite leva à migração para ME e, se for muito acima, o efeito pode ser retroativo. Indicamos um contador parceiro.';c='bad'}
+    else if(r>1.2){t='Pelo ritmo atual, você passa muito do limite neste ano. Indicamos um contador parceiro para planejar a mudança.';c='bad'}
+    else if(r>1){var m=ritmo>0?Math.ceil(LIM/ritmo):12;t='Pelo ritmo atual, você passa do limite por volta de '+meses[Math.min(11,m-1)]+'.';c='bad'}
+    else if(r>=.8){t='Você está perto do limite. Vale acompanhar o faturamento todo mês.';c=''}
+    else{t='Dentro do limite pelo ritmo atual.';c='ok'}
+    v.textContent=t;v.className='verdict '+c;
+  }
+  ['tipo','mes','fat'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+  calc();
+
+  /* assistente (exemplos) */
+  var qa=[
+    ['O que eu preciso mandar para começar?',['Só o seu CNPJ, pelo WhatsApp.','A gente confere se ele é seu, vê se está ativo e diz quanto é o seu DAS. Depois a guia chega todo mês.']],
+    ['Quando vence o DAS?',['Todo dia 20. Se cair em fim de semana ou feriado, passa para o próximo dia útil. O DAS de outubro de 2026 vence em 23/11, porque o dia 20 é feriado.','Os valores de 2026 são R$ 82,05 (comércio), R$ 86,05 (serviços) e R$ 87,05 (os dois).']],
+    ['Contratei um ajudante. E agora?',['Contratar funcionário muda regras do MEI, e o limite é de até 2 empregados.','Esse caso vai para uma pessoa da equipe, que conversa com você e, se precisar, indica um contador parceiro.']]
+  ];
+  var chips=document.getElementById('chips'),ans=document.getElementById('answer');
+  function show(i){
+    chips.querySelectorAll('.chip').forEach(function(c,j){c.setAttribute('aria-pressed',i===j)});
+    ans.innerHTML='<b>'+qa[i][0]+'</b>'+qa[i][1].map(function(p){return '<p>'+p+'</p>'}).join('');
+  }
+  qa.forEach(function(q,i){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=q[0];b.addEventListener('click',function(){show(i)});chips.appendChild(b)});
+  show(0);
+
+  /* cadastro simulado */
+  function cnpjOk(v){
+    var d=v.replace(/\D/g,'');if(d.length!==14||/^(\d)\1+$/.test(d))return false;
+    function dv(n){var p=[],i;for(i=n-7;i>1;i--)p.push(i);for(i=9;i>1;i--)p.push(i);var s=0;for(i=0;i<n;i++)s+=+d[i]*p[i];var r=s%11;return r<2?0:11-r}
+    return dv(12)===+d[12]&&dv(13)===+d[13];
+  }
+  document.getElementById('signup').addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=document.getElementById('err'),n=document.getElementById('nome').value.trim(),z=document.getElementById('zap').value.replace(/\D/g,''),c=document.getElementById('cnpj').value;
+    if(!n){err.textContent='Escreva seu nome.';return}
+    if(z.length<10||z.length>11){err.textContent='Confira o WhatsApp: DDD mais o número.';return}
+    if(!cnpjOk(c)){err.textContent='Esse CNPJ não parece certo. Confira os 14 números.';return}
+    if(!document.getElementById('ok').checked){err.textContent='Marque o aceite das mensagens para continuar.';return}
+    err.textContent='';this.style.display='none';document.getElementById('done').classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
