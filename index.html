@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light only">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Direto MEI</title>
 <meta property="og:title" content="Direto MEI"><meta property="og:description" content="A guia do DAS no WhatsApp todo mês e a declaração anual assistida. R$ 19,90 por mês."><meta property="og:type" content="website"><meta name="theme-color" content="#123a36">
@@ -28,18 +29,6 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:16px;
   color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ink:#e8f3ef;--ink-2:#b9d3cc;--tape:#f6b92b;--tape-soft:#3a3118;
-    --paper:#0f1c1a;--card:#162826;--line:#2a403c;--muted:#9bb0aa;--wa:#1d4a2f;
-    --danger:#ee8a72;--ok:#6fd49c;color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --ink:#e8f3ef;--ink-2:#b9d3cc;--tape:#f6b92b;--tape-soft:#3a3118;
-  --paper:#0f1c1a;--card:#162826;--line:#2a403c;--muted:#9bb0aa;--wa:#1d4a2f;
-  --danger:#ee8a72;--ok:#6fd49c;color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -178,50 +167,6 @@ footer .wrap{display:grid;gap:12px}
 /* Mobile e leitura: texto grande, contraste alto, alvos de toque de 48px, nada cortado ou só com parte destacada */
 body{font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
 :root{--muted:#3f4d48}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#b6c8c2}}
-:root[data-theme="dark"]{--muted:#b6c8c2}
-h1{font-size:clamp(2.2rem,9vw,3.3rem);overflow-wrap:break-word}
-.btn{min-height:52px;font-size:1.05rem;justify-content:center;text-align:center}
-.tab{min-height:44px;font-size:.95rem;padding:9px 16px}
-.chip{min-height:52px;font-size:1.05rem}
-input,select{font-size:18px;min-height:52px}
-.eyebrow{font-size:.85rem}
-.msg{font-size:1rem}
-.note,.compare,footer{font-size:1rem}
-details summary{min-height:48px;align-items:center;font-size:1.15rem}
-.stripe{height:10px}
-.sticky{display:none}
-@media(max-width:760px){
-  body{padding-bottom:84px}
-  .wrap{padding:0 18px}
-  section{padding:48px 0}
-  .hero{padding:28px 0 40px}
-  .hero-grid{gap:32px}
-  .hero p.lead{font-size:1.15rem}
-  .hero .cta{flex-direction:column}
-  .hero .cta .btn{width:100%}
-  .logo svg{width:44px;height:44px}
-  .logo b{font-size:1.5rem}
-  header .btn{display:none}
-  .bar{padding:10px 0}
-  .phone{width:100%;max-width:360px}
-  .tabs{gap:8px}
-  .tab{flex:1 1 auto;padding:9px 10px}
-  .plan .price{padding:28px 22px}
-  .plan .price b{font-size:3.4rem}
-  .plan .price .btn{align-self:stretch}
-  .plan table,.plan tbody,.plan tr,.plan td{display:block;width:100%}
-  .plan tr{padding:16px 22px;border-bottom:1px solid var(--line)}
-  .plan tr:last-child{border-bottom:0}
-  .plan td{padding:0;border:0}
-  .plan td:first-child{width:100%;margin-bottom:4px;font-size:1.05rem}
-  .signup{padding:24px 18px;border-radius:22px}
-  .signup .row2,.calc .row2{grid-template-columns:1fr}
-  .signup .btn{width:100%}
-  .check input{width:26px;height:26px}
-  .sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:var(--paper);border-top:2px solid var(--ink)}
-  .sticky .btn{width:100%}
-}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -421,13 +366,12 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
       <div>
         <p class="eyebrow">Comece agora</p>
         <h2 style="margin-top:10px">Chame no WhatsApp com o seu CNPJ.</h2>
-        <p style="margin-top:14px;color:var(--muted)">Plano Essencial, R$ 19,90 por mês. Você preenche o nome e o CNPJ aqui, o WhatsApp abre com a mensagem pronta e a gente responde por lá. O pagamento por Pix é combinado na conversa.</p>
-        <p class="note" style="margin-top:14px">Nada é guardado nesta página: os dados só vão na mensagem que você enviar.</p>
+        <p style="margin-top:14px;color:var(--muted)">Plano Essencial, R$ 19,90 por mês. Toque no botão e o WhatsApp abre com a mensagem pronta. Se tiver o CNPJ à mão, pode colocar. Se não tiver, a gente ajuda a achar por lá.</p>
       </div>
       <div>
         <form id="signup" novalidate>
-          <label for="nome">Seu nome<input id="nome" autocomplete="name" placeholder="Marcos Silva"></label>
-          <label for="cnpj">CNPJ<input id="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></label>
+          <label for="nome">Seu nome (opcional)<input id="nome" autocomplete="name" placeholder="Marcos Silva"></label>
+          <label for="cnpj">CNPJ (opcional)<input id="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></label>
           <button class="btn" type="submit">Abrir o WhatsApp</button>
           <p class="note" id="err" role="alert" style="color:var(--danger)"></p>
         </form>
@@ -522,19 +466,12 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
 
   /* cadastro: abre o WhatsApp com a mensagem pronta */
   var WHATSAPP='';  /* número com DDI e DDD, só dígitos. Ex.: 5521999999999 */
-  function cnpjOk(v){
-    var d=v.replace(/\D/g,'');if(d.length!==14||/^(\d)\1+$/.test(d))return false;
-    function dv(n){var p=[],i;for(i=n-7;i>1;i--)p.push(i);for(i=9;i>1;i--)p.push(i);var s=0;for(i=0;i<n;i++)s+=+d[i]*p[i];var r=s%11;return r<2?0:11-r}
-    return dv(12)===+d[12]&&dv(13)===+d[13];
-  }
   document.getElementById('signup').addEventListener('submit',function(e){
     e.preventDefault();
     var err=document.getElementById('err'),n=document.getElementById('nome').value.trim(),c=document.getElementById('cnpj').value.trim();
-    if(!n){err.textContent='Escreva seu nome.';return}
-    if(!cnpjOk(c)){err.textContent='Esse CNPJ não parece certo. Confira os 14 números.';return}
     if(!WHATSAPP){err.textContent='Estamos abrindo as vagas. Volte em breve.';return}
     err.textContent='';
-    var msg='Oi! Quero começar no Direto MEI. Meu nome é '+n+' e meu CNPJ é '+c+'.';
+    var msg='Oi! Quero começar no Direto MEI.'+(n?' Meu nome é '+n+'.':'')+(c?' Meu CNPJ é '+c+'.':'');
     window.location.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
   });
 })();
