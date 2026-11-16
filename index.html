@@ -469,7 +469,7 @@ body{font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
   document.getElementById('signup').addEventListener('submit',function(e){
     e.preventDefault();
     var err=document.getElementById('err'),n=document.getElementById('nome').value.trim(),c=document.getElementById('cnpj').value.trim();
-    if(!WHATSAPP){err.textContent='Estamos abrindo as vagas. Volte em breve.';return}
+    if(!WHATSAPP){err.textContent='Pendente configurar número do WhatsApp.';return}
     err.textContent='';
     var msg='Oi! Quero começar no Direto MEI.'+(n?' Meu nome é '+n+'.':'')+(c?' Meu CNPJ é '+c+'.':'');
     window.location.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
