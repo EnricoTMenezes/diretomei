@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Direto MEI</title>
+<meta property="og:title" content="Direto MEI"><meta property="og:description" content="A guia do DAS no WhatsApp todo mês e a declaração anual assistida. R$ 19,90 por mês."><meta property="og:type" content="website"><meta name="theme-color" content="#123a36">
 <meta name="description" content="A guia do DAS no WhatsApp todo mês, com lembrete, e a declaração anual assistida. R$ 19,90 por mês.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123a36'/%3E%3Crect x='14' y='18' width='36' height='32' rx='6' fill='%23fff'/%3E%3Crect x='14' y='18' width='36' height='10' rx='5' fill='%23f6b92b'/%3E%3Cpath d='M23 40l6 6 12-13' fill='none' stroke='%23123a36' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123a36'/%3E%3Cpath d='M32 11c11.600 0 21 8 21 18s-9.400 18-21 18c-2.300 0-4.500-.3-6.600-.9L15 51l3-8.600C14.200 39.300 11 34.600 11 29c0-10 9.400-18 21-18z' fill='%23f6b92b'/%3E%3Cpath d='M22 29.500l7 7 13-14.500' fill='none' stroke='%23123a36' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -63,7 +64,8 @@ header{padding-top:env(safe-area-inset-top);position:sticky;top:0;z-index:10;bac
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo svg{width:40px;height:40px;flex:none}
-.logo b{font:800 1.35rem var(--display);letter-spacing:-.02em}
+.logo b{font:800 1.35rem var(--display);letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+.chipmei{background:var(--tape);color:#123a36;border-radius:8px;padding:0 8px 2px}
 nav{display:flex;gap:22px;align-items:center}
 nav a{text-decoration:none;font-weight:600;font-size:.95rem}
 nav a:hover{text-decoration:underline;text-decoration-color:var(--tape);text-decoration-thickness:3px;text-underline-offset:5px}
@@ -91,7 +93,7 @@ nav a:hover{text-decoration:underline;text-decoration-color:var(--tape);text-dec
 .msg .pdf{display:flex;gap:8px;align-items:center;background:#f3efe3;border-radius:8px;padding:8px;margin-bottom:6px}
 .msg .pdf svg{width:26px;height:26px;flex:none}
 .msg .pdf em{font-style:normal;font-size:.78rem;display:block;color:#5a6a65}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
 .tab{font:600 .82rem var(--body);padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
@@ -178,7 +180,7 @@ body{font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
 :root{--muted:#3f4d48}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#b6c8c2}}
 :root[data-theme="dark"]{--muted:#b6c8c2}
-h1{font-size:clamp(2.2rem,9vw,3.9rem);overflow-wrap:break-word}
+h1{font-size:clamp(2.2rem,9vw,3.3rem);overflow-wrap:break-word}
 .btn{min-height:52px;font-size:1.05rem;justify-content:center;text-align:center}
 .tab{min-height:44px;font-size:.95rem;padding:9px 16px}
 .chip{min-height:52px;font-size:1.05rem}
@@ -229,12 +231,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="logo" viewBox="0 0 64 64">
     <rect width="64" height="64" rx="16" fill="#123a36"/>
-    <rect x="14" y="18" width="36" height="32" rx="6" fill="#fff"/>
-    <rect x="14" y="18" width="36" height="10" rx="5" fill="#f6b92b"/>
-    <rect x="14" y="23" width="36" height="5" fill="#f6b92b"/>
-    <rect x="21" y="12" width="4" height="10" rx="2" fill="#fff"/>
-    <rect x="39" y="12" width="4" height="10" rx="2" fill="#fff"/>
-    <path d="M23 40l6 6 12-13" fill="none" stroke="#123a36" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M32 11c11.6 0 21 8 21 18s-9.4 18-21 18c-2.3 0-4.5-.3-6.6-.9L15 51l3-8.6C14.2 39.3 11 34.6 11 29c0-10 9.400-18 21-18z" fill="#f6b92b"/>
+    <path d="M22 29.500l7 7 13-14.500" fill="none" stroke="#123a36" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
   <symbol id="i-chat" viewBox="0 0 32 32"><path d="M6 6h20a3 3 0 013 3v11a3 3 0 01-3 3H15l-6 5v-5H6a3 3 0 01-3-3V9a3 3 0 013-3z" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linejoin="round"/><circle cx="10" cy="14.5" r="1.8" fill="#123a36"/><circle cx="16" cy="14.5" r="1.8" fill="#123a36"/><circle cx="22" cy="14.5" r="1.8" fill="#123a36"/></symbol>
   <symbol id="i-id" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#123a36" stroke-width="2.4"/><circle cx="11" cy="15" r="3" fill="none" stroke="#123a36" stroke-width="2.4"/><path d="M7 22c1-3 7-3 8 0M19 13h6M19 18h5" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
@@ -247,13 +245,13 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   <div class="wrap bar">
     <a class="logo" href="#topo" aria-label="Direto MEI, início">
       <svg aria-hidden="true"><use href="#logo"/></svg>
-      <b>Direto MEI</b>
+      <b>Direto <span class="chipmei">MEI</span></b>
     </a>
     <nav aria-label="Principal">
       <a class="hide" href="#como">Como funciona</a>
       <a class="hide" href="#calculadora">Calculadora</a>
       <a class="hide" href="#faq">Dúvidas</a>
-      <a class="btn tape" href="#assinar" style="padding:10px 18px">Assinar</a>
+      <a class="btn tape" href="#assinar" style="padding:10px 18px">Começar</a>
     </nav>
   </div>
 </header>
@@ -265,10 +263,10 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Para MEI sem tempo de olhar imposto</p>
-      <h1 style="margin-top:12px">Seu MEI em dia, direto no WhatsApp.</h1>
+      <h1 style="margin-top:12px"><span style="display:block">Seu MEI em dia,</span><span style="display:block">direto no WhatsApp.</span></h1>
       <p class="lead">A gente manda a guia do DAS no seu WhatsApp todo mês, avisa antes de vencer e cuida da declaração anual com você. Você não precisa entrar em nenhum site.</p>
       <div class="cta">
-        <a class="btn tape" href="#assinar">Assinar por R$ 19,90 por mês</a>
+        <a class="btn tape" href="#assinar">Começar por R$ 19,90 por mês</a>
         <a class="btn ghost" href="#plano">Ver o que inclui</a>
       </div>
       <small>Um plano só, sem fidelidade. Cuida da rotina que o MEI costuma esquecer.</small>
@@ -284,6 +282,7 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
           <div class="chat" id="chat" aria-live="polite"></div>
         </div>
       </div>
+      <p class="note" style="text-align:center;margin-top:14px">Exemplo de conversa</p>
       <div class="tabs" role="tablist" aria-label="Cenas da conversa" id="tabs">
         <button class="tab" role="tab" aria-selected="true" data-k="guia">Guia do mês</button>
         <button class="tab" role="tab" aria-selected="false" data-k="fat">Faturamento</button>
@@ -329,8 +328,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
       <div class="price">
         <span class="eyebrow" style="color:#123a36">Essencial</span>
         <b>R$ 19,90<span> /mês</span></b>
-        <p>Sem fidelidade e sem multa. Preço de lançamento: limites e termos finais saem de um piloto com MEIs de verdade.</p>
-        <a class="btn" href="#assinar">Assinar</a>
+        <p>Sem fidelidade e sem multa. Cancele quando quiser, direto no WhatsApp.</p>
+        <a class="btn" href="#assinar">Começar</a>
       </div>
       <table>
         <tbody>
@@ -344,7 +343,6 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
         </tbody>
       </table>
     </div>
-    <p class="compare">Para comparar: o ZAP MEI custa R$ 49,90 e inclui nota fiscal. O Essencial faz menos e custa menos.</p>
   </div>
 </section>
 
@@ -353,7 +351,7 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
     <div class="sec-head">
       <p class="eyebrow">Calculadora</p>
       <h2 style="margin-top:10px">Você está perto do limite de R$ 110 mil?</h2>
-      <p>Conta simples com o limite de 2027 e o DAS de 2026. Não cobre quem abriu o MEI no meio do ano.</p>
+      <p>Conta simples com o limite de 2027 e o DAS de 2026. Os números já preenchidos são só um exemplo. Não cobre quem abriu o MEI no meio do ano.</p>
     </div>
     <div class="calc">
       <form id="calc" novalidate>
@@ -392,7 +390,7 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
     <div class="sec-head">
       <p class="eyebrow">Atendimento por IA</p>
       <h2 style="margin-top:10px">Pergunte como se fosse no zap.</h2>
-      <p>Exemplos de respostas. Dúvida que não casa com nada vai para uma pessoa da equipe.</p>
+      <p>Exemplos do que o assistente responde. Dúvida que ele não resolve vai para uma pessoa da equipe.</p>
     </div>
     <div class="ask">
       <div class="chips" id="chips"></div>
@@ -411,8 +409,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
       <details><summary>Quem entrega a declaração anual?</summary><p>A declaração só pede o faturamento do ano. A entrega exige o seu acesso (gov.br ou código de acesso do Simples). Na primeira temporada, deixamos o número pronto e guiamos a entrega. Estamos validando se dá para entregar por você.</p></details>
       <details><summary>E se meu CNPJ já estiver atrasado ou inapto?</summary><p>O Radar mostra se está inapto e desde quando. A ajuda completa para regularizar atrasados e inaptos é a próxima etapa do serviço.</p></details>
       <details><summary>Vocês emitem nota fiscal?</summary><p>Por enquanto não: a emissão exige login gov.br ou certificado digital. A partir de 1º/1/2027 a nota passa a ser obrigatória em todas as vendas. Por ora, o serviço cuida da guia e da declaração.</p></details>
-      <details><summary>Meus dados estão seguros?</summary><p>Usamos só o necessário, dizemos de onde veio cada contato e você sai quando quiser escrevendo SAIR. Nesta página de demonstração nada sai do seu aparelho.</p></details>
-      <details><summary>Posso cancelar quando quiser?</summary><p>Esta é a proposta: sem fidelidade e sem multa. Os termos finais serão publicados antes da primeira cobrança de verdade.</p></details>
+      <details><summary>Meus dados estão seguros?</summary><p>Usamos só o necessário para gerar a sua guia. Você só recebe mensagens se escrever primeiro, e para parar basta escrever SAIR.</p></details>
+      <details><summary>Posso cancelar quando quiser?</summary><p>Sim. Não tem fidelidade nem multa. É só avisar no WhatsApp.</p></details>
     </div>
   </div>
 </section>
@@ -421,41 +419,30 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   <div class="wrap">
     <div class="signup">
       <div>
-        <p class="eyebrow">Assinar</p>
-        <h2 style="margin-top:10px">Comece com o seu CNPJ.</h2>
-        <p style="margin-top:14px;color:var(--muted)">Plano Essencial, R$ 19,90 por mês. Pagamento por Pix ou cartão de crédito, sem pedir dados de cartão aqui.</p>
-        <p class="note" style="margin-top:14px"><b>Demonstração.</b> Nada é enviado, guardado ou cobrado.</p>
+        <p class="eyebrow">Comece agora</p>
+        <h2 style="margin-top:10px">Chame no WhatsApp com o seu CNPJ.</h2>
+        <p style="margin-top:14px;color:var(--muted)">Plano Essencial, R$ 19,90 por mês. Você preenche o nome e o CNPJ aqui, o WhatsApp abre com a mensagem pronta e a gente responde por lá. O pagamento por Pix é combinado na conversa.</p>
+        <p class="note" style="margin-top:14px">Nada é guardado nesta página: os dados só vão na mensagem que você enviar.</p>
       </div>
       <div>
         <form id="signup" novalidate>
           <label for="nome">Seu nome<input id="nome" autocomplete="name" placeholder="Marcos Silva"></label>
-          <div class="row2">
-            <label for="zap">WhatsApp com DDD<input id="zap" inputmode="tel" autocomplete="tel" placeholder="(21) 9 0000-0000"></label>
-            <label for="cnpj">CNPJ<input id="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></label>
-          </div>
-          <label for="pag">Forma de pagamento
-            <select id="pag"><option>Pix</option><option>Cartão de crédito</option></select>
-          </label>
-          <label class="check" for="ok"><input id="ok" type="checkbox"><span>Aceito receber mensagens do Direto MEI no WhatsApp. Posso parar a qualquer hora escrevendo SAIR.</span></label>
-          <button class="btn" type="submit">Assinar por R$ 19,90 por mês</button>
+          <label for="cnpj">CNPJ<input id="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></label>
+          <button class="btn" type="submit">Abrir o WhatsApp</button>
           <p class="note" id="err" role="alert" style="color:var(--danger)"></p>
         </form>
-        <div class="done" id="done" role="status">
-          <h3>Pronto, na demonstração.</h3>
-          <p style="margin-top:8px;color:var(--muted)">No serviço de verdade, a próxima mensagem chegaria no seu WhatsApp pedindo para confirmar o CNPJ. Nenhum dado foi enviado.</p>
-        </div>
       </div>
     </div>
   </div>
 </section>
 </main>
-<div class="sticky"><a class="btn tape" href="#assinar">Assinar por R$ 19,90 por mês</a></div>
+<div class="sticky"><a class="btn tape" href="#assinar">Começar por R$ 19,90 por mês</a></div>
 
 <div class="stripe" aria-hidden="true"></div>
 <footer>
   <div class="wrap">
-    <div class="logo"><svg aria-hidden="true"><use href="#logo"/></svg><b>Direto MEI</b></div>
-    <p>Esta página é uma demonstração: nenhuma cobrança real acontece. O serviço não é parecer jurídico nem tributário. Atualizado em 13/11/2026.</p>
+    <div class="logo"><svg aria-hidden="true"><use href="#logo"/></svg><b>Direto <span class="chipmei">MEI</span></b></div>
+    <p>O Direto MEI cuida da rotina do MEI e não é parecer jurídico nem tributário.</p>
     <p>diretomei.com.br</p>
   </div>
 </footer>
@@ -533,7 +520,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   qa.forEach(function(q,i){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=q[0];b.addEventListener('click',function(){show(i)});chips.appendChild(b)});
   show(0);
 
-  /* cadastro simulado */
+  /* cadastro: abre o WhatsApp com a mensagem pronta */
+  var WHATSAPP='';  /* número com DDI e DDD, só dígitos. Ex.: 5521999999999 */
   function cnpjOk(v){
     var d=v.replace(/\D/g,'');if(d.length!==14||/^(\d)\1+$/.test(d))return false;
     function dv(n){var p=[],i;for(i=n-7;i>1;i--)p.push(i);for(i=9;i>1;i--)p.push(i);var s=0;for(i=0;i<n;i++)s+=+d[i]*p[i];var r=s%11;return r<2?0:11-r}
@@ -541,12 +529,13 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   }
   document.getElementById('signup').addEventListener('submit',function(e){
     e.preventDefault();
-    var err=document.getElementById('err'),n=document.getElementById('nome').value.trim(),z=document.getElementById('zap').value.replace(/\D/g,''),c=document.getElementById('cnpj').value;
+    var err=document.getElementById('err'),n=document.getElementById('nome').value.trim(),c=document.getElementById('cnpj').value.trim();
     if(!n){err.textContent='Escreva seu nome.';return}
-    if(z.length<10||z.length>11){err.textContent='Confira o WhatsApp: DDD mais o número.';return}
     if(!cnpjOk(c)){err.textContent='Esse CNPJ não parece certo. Confira os 14 números.';return}
-    if(!document.getElementById('ok').checked){err.textContent='Marque o aceite das mensagens para continuar.';return}
-    err.textContent='';this.style.display='none';document.getElementById('done').classList.add('show');
+    if(!WHATSAPP){err.textContent='Estamos abrindo as vagas. Volte em breve.';return}
+    err.textContent='';
+    var msg='Oi! Quero começar no Direto MEI. Meu nome é '+n+' e meu CNPJ é '+c+'.';
+    window.location.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
   });
 })();
 </script>
