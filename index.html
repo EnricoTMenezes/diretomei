@@ -91,11 +91,13 @@ section{padding:72px 0}
 .sec-head{max-width:40em;margin-bottom:36px}
 .sec-head p{color:var(--muted);margin-top:12px;font-size:1.08rem}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.steps.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.steps.four{grid-template-columns:repeat(2,1fr)}}
 .step{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:24px}
 .step .ico{width:52px;height:52px;border-radius:14px;background:var(--tape-soft);display:grid;place-items:center;margin-bottom:16px}
 .step .ico svg{width:30px;height:30px}
 .step p{color:var(--muted);margin-top:8px}
-@media(max-width:820px){.steps{grid-template-columns:1fr}}
+@media(max-width:640px){.steps,.steps.four{grid-template-columns:1fr}}
 
 
 .plan{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border:2px solid var(--ink);border-radius:24px;overflow:hidden;background:var(--card)}
@@ -112,35 +114,6 @@ section{padding:72px 0}
 .soon{display:inline-block;font:700 .7rem var(--body);background:var(--tape-soft);padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
 @media(max-width:820px){.plan{grid-template-columns:1fr}.plan td:first-child{width:auto}}
 .compare{margin-top:18px;color:var(--muted);font-size:.95rem}
-
-/* calculadora */
-.calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:28px}
-.calc form{display:grid;gap:16px;align-content:start}
-label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
-input,select{font:500 1rem var(--body);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.result{background:var(--paper);border-radius:18px;padding:22px;border:1.5px solid var(--line);display:grid;gap:14px;align-content:start}
-.meter{height:16px;border-radius:99px;background:var(--line);overflow:hidden;position:relative}
-.meter i{position:absolute;inset:0 auto 0 0;background:var(--ok);border-radius:99px;transition:width .4s}
-.meter i.warn{background:var(--tape)}.meter i.bad{background:var(--danger)}
-.result .big{font:800 2.4rem var(--display);line-height:1}
-.result dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:.95rem}
-.result dt{color:var(--muted)}.result dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
-.verdict{padding:12px 14px;border-radius:12px;font-weight:600;font-size:.95rem;background:var(--tape-soft)}
-.verdict.ok{background:color-mix(in srgb,var(--ok) 16%,transparent)}
-.verdict.bad{background:color-mix(in srgb,var(--danger) 16%,transparent)}
-@media(max-width:820px){.calc{grid-template-columns:1fr;padding:20px}}
-
-/* assistente */
-.ask{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
-.chips{display:flex;flex-direction:column;gap:10px}
-.chip{text-align:left;font:600 .98rem var(--body);padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
-.chip[aria-pressed="true"]{border-color:var(--ink);box-shadow:4px 4px 0 var(--tape)}
-.answer{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:22px;min-height:180px}
-.answer b{display:block;margin-bottom:8px;font-family:var(--display);font-size:1.1rem}
-.answer p+p{margin-top:10px}
-.answer p{color:var(--muted)}
-@media(max-width:820px){.ask{grid-template-columns:1fr}}
 
 /* faq */
 details{border-bottom:1.5px solid var(--line);padding:18px 0}
@@ -186,7 +159,7 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   .bar{padding:10px 0}
   .phone{width:100%;max-width:360px}
   .tabs{gap:8px}
-  .tab{flex:1 1 40%;padding:9px 10px}
+  .tab{flex:1 1 auto;padding:9px 10px}
   .plan .price{padding:28px 22px}
   .plan .price b{font-size:3.4rem}
   .plan .price .btn{align-self:stretch}
@@ -227,6 +200,12 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
 .form-t{font-weight:600;text-align:center}
 .signup form .btn{background:transparent;color:#123a36;border-color:#123a36}
 @media(max-width:760px){.signup{padding:36px 18px}.bigbtn{width:100%;padding:18px 16px}}
+.perdao-lead{margin-top:14px;font-size:1.2rem;font-weight:600;max-width:34em}
+.zap-in{display:grid;gap:22px;justify-items:start}
+.zap-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:40em}
+.zap-list li{display:flex;gap:12px;align-items:flex-start;font-size:1.1rem}
+.zap-list svg{width:26px;height:26px;flex:none;margin-top:2px}
+@media(max-width:760px){.zap-in .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -243,6 +222,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   <symbol id="i-id" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#123a36" stroke-width="2.4"/><circle cx="11" cy="15" r="3" fill="none" stroke="#123a36" stroke-width="2.4"/><path d="M7 22c1-3 7-3 8 0M19 13h6M19 18h5" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
   <symbol id="i-bell" viewBox="0 0 32 32"><path d="M7 23h18l-2-3v-6a7 7 0 00-14 0v6z" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linejoin="round"/><path d="M13 26a3 3 0 006 0" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#f6b92b"/><path d="M7 12.5l3.5 3.5L17 9" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-card" viewBox="0 0 32 32"><rect x="3" y="7" width="26" height="18" rx="3" fill="none" stroke="#123a36" stroke-width="2.4"/><path d="M3 13h26" stroke="#123a36" stroke-width="2.4"/><path d="M7 20h7" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 3v6h6M12 16h9M12 21h9" fill="none" stroke="#123a36" stroke-width="2.4" stroke-linecap="round"/></symbol>
   <symbol id="i-pdf" viewBox="0 0 28 28"><path d="M6 2h11l6 6v18H6z" fill="#fff" stroke="#c0392b" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 2v6h6" fill="none" stroke="#c0392b" stroke-width="1.6"/><rect x="9" y="15" width="11" height="5" rx="1" fill="#c0392b"/></symbol>
 </svg>
 
@@ -255,7 +236,6 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
     <nav aria-label="Principal">
       <a class="hide" href="#como">Como funciona</a>
       <a class="hide" href="#perdao">Perdão</a>
-      <a class="hide" href="#calculadora">Calculadora</a>
       <a class="hide" href="#faq">Dúvidas</a>
       <a class="btn tape" href="https://wa.me/5521986500690?text=Oi!%20Quero%20come%C3%A7ar%20no%20Direto%20MEI." style="padding:10px 18px">Começar</a>
     </nav>
@@ -291,7 +271,6 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
       <p class="note" style="text-align:center;margin-top:14px">Exemplo de conversa</p>
       <div class="tabs" role="tablist" aria-label="Cenas da conversa" id="tabs">
         <button class="tab" role="tab" aria-selected="true" data-k="guia">Guia do mês</button>
-        <button class="tab" role="tab" aria-selected="false" data-k="perdao">Perdão</button>
         <button class="tab" role="tab" aria-selected="false" data-k="fat">Faturamento</button>
         <button class="tab" role="tab" aria-selected="false" data-k="dasn">Declaração</button>
       </div>
@@ -310,25 +289,57 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
 <section id="como" style="padding-top:24px">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Três passos</p>
-      <h2 style="margin-top:10px">Mande o CNPJ. O resto chega no zap.</h2>
+      <p class="eyebrow">Como funciona</p>
+      <h2 style="margin-top:10px">Simples, do começo ao fim do ano.</h2>
     </div>
-    <div class="steps">
-      <article class="step">
-        <div class="ico"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
-        <h3>1. Mande seu CNPJ</h3>
-        <p>A gente vê se ele está ativo ou inapto e quanto é o seu DAS.</p>
-      </article>
+    <div class="steps four">
       <article class="step">
         <div class="ico"><svg aria-hidden="true"><use href="#i-id"/></svg></div>
-        <h3>2. Confirme que é o seu</h3>
-        <p>Conferimos o CNPJ antes de gerar a guia. Para parar de receber, escreva SAIR.</p>
+        <h3>1. Confirme o seu CNPJ</h3>
+        <p>A gente mostra o CNPJ do seu MEI e você só confirma que é o seu.</p>
       </article>
       <article class="step">
         <div class="ico"><svg aria-hidden="true"><use href="#i-bell"/></svg></div>
-        <h3>3. Receba a guia todo mês</h3>
-        <p>Pix ou código de barras, com aviso antes de vencer. Em janeiro, a declaração anual, que só pede o faturamento do ano.</p>
+        <h3>2. Receba a guia</h3>
+        <p>Todo mês a guia do DAS chega no seu WhatsApp, com aviso antes de vencer.</p>
       </article>
+      <article class="step">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-card"/></svg></div>
+        <h3>3. Pague a mensalidade</h3>
+        <p>R$ 19,90 por Pix ou cartão, como você preferir.</p>
+      </article>
+      <article class="step">
+        <div class="ico"><svg aria-hidden="true"><use href="#i-doc"/></svg></div>
+        <h3>4. No fim do ano, a declaração</h3>
+        <p>A gente faz a declaração anual com você. Você só informa quanto faturou.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="plano">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">O que você recebe</p>
+      <h2 style="margin-top:10px">Um plano só. Menos de R$ 0,70 por dia.</h2>
+    </div>
+    <div class="plan">
+      <div class="price">
+        <span class="eyebrow" style="color:#123a36">Plano Essencial</span>
+        <b>R$ 19,90<span> /mês</span></b>
+        <p>Sem fidelidade e sem multa. Cancele quando quiser, direto no WhatsApp.</p>
+        <a class="btn" href="https://wa.me/5521986500690?text=Oi!%20Quero%20come%C3%A7ar%20no%20Direto%20MEI.">Começar agora</a>
+      </div>
+      <table>
+        <tbody>
+          <tr><td>Guia do DAS todo mês</td><td><span>Chega no seu WhatsApp, com Pix e código de barras.</span></td></tr>
+          <tr><td>Aviso antes de vencer</td><td><span>A gente avisa 5 dias antes, 1 dia antes e no dia. Quando você paga, confirmamos.</span></td></tr>
+          <tr><td>Declaração anual</td><td><span>A gente faz com você. Você só informa quanto faturou no ano.</span></td></tr>
+          <tr><td>Situação do seu CNPJ</td><td><span>Mostramos se está ativo ou inapto e, se algo estiver errado, o que fazer.</span></td></tr>
+          <tr><td>Aviso do limite</td><td><span>Avisamos quando o seu faturamento chegar perto dos R$ 110 mil por ano.</span></td></tr>
+          <tr><td>Tirar dúvidas</td><td><span>Pergunte pelo WhatsApp, por texto ou áudio.</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -337,7 +348,8 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   <div class="wrap">
     <div class="perdao-head">
       <p class="eyebrow">Perdão das dívidas do MEI</p>
-      <h2 style="margin-top:10px">O governo vai perdoar dívidas de MEI. Para não perder, você precisa estar em dia.</h2>
+      <h2 style="margin-top:10px">Entenda o perdão das dívidas</h2>
+      <p class="perdao-lead">O governo já aprovou o perdão das dívidas de MEI. Para não perder, você precisa estar em dia.</p>
     </div>
     <div class="psteps">
       <article class="pstep">
@@ -363,100 +375,29 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
   </div>
 </section>
 
-<section id="plano">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">O que você recebe</p>
-      <h2 style="margin-top:10px">Um plano só. Menos de R$ 0,70 por dia.</h2>
+<section id="zap" style="background:var(--tape-soft)">
+  <div class="wrap zap-in">
+    <div>
+      <p class="eyebrow">Tudo pelo WhatsApp</p>
+      <h2 style="margin-top:10px">Sem aplicativo, sem site, sem fila.</h2>
     </div>
-    <div class="plan">
-      <div class="price">
-        <span class="eyebrow" style="color:#123a36">Plano Essencial</span>
-        <b>R$ 19,90<span> /mês</span></b>
-        <p>Sem fidelidade e sem multa. Cancele quando quiser, direto no WhatsApp.</p>
-        <a class="btn" href="https://wa.me/5521986500690?text=Oi!%20Quero%20come%C3%A7ar%20no%20Direto%20MEI.">Começar agora</a>
-      </div>
-      <table>
-        <tbody>
-          <tr><td>Guia do DAS todo mês</td><td><span>Chega no seu WhatsApp, com Pix e código de barras.</span></td></tr>
-          <tr><td>Aviso antes de vencer</td><td><span>A gente avisa 5 dias antes, 1 dia antes e no dia. Quando você paga, confirmamos.</span></td></tr>
-          <tr><td>Declaração anual</td><td><span>A gente faz com você. Você só informa quanto faturou no ano.</span></td></tr>
-          <tr><td>Situação do seu CNPJ</td><td><span>Mostramos se está ativo ou inapto e, se algo estiver errado, o que fazer.</span></td></tr>
-          <tr><td>Aviso do limite</td><td><span>Avisamos quando o seu faturamento chegar perto dos R$ 110 mil por ano.</span></td></tr>
-          <tr><td>Tirar dúvidas</td><td><span>Pergunte por texto ou áudio. Quando for preciso, uma pessoa da equipe responde.</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section id="calculadora" style="background:var(--tape-soft)">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Calculadora</p>
-      <h2 style="margin-top:10px">Você está perto do limite de R$ 110 mil?</h2>
-      <p>Conta simples com o limite de 2027 e o DAS de 2026. Os números já preenchidos são só um exemplo. Não cobre quem abriu o MEI no meio do ano.</p>
-    </div>
-    <div class="calc">
-      <form id="calc" novalidate>
-        <label for="tipo">Tipo de atividade
-          <select id="tipo">
-            <option value="82.05">Comércio ou indústria (DAS R$ 82,05)</option>
-            <option value="86.05" selected>Serviços (DAS R$ 86,05)</option>
-            <option value="87.05">Comércio e serviços (DAS R$ 87,05)</option>
-          </select>
-        </label>
-        <div class="row2">
-          <label for="mes">Mês atual
-            <select id="mes"></select>
-          </label>
-          <label for="fat">Faturado desde janeiro (R$)
-            <input id="fat" type="number" inputmode="decimal" min="0" step="100" value="42000">
-          </label>
-        </div>
-      </form>
-      <div class="result" aria-live="polite">
-        <div><div class="big" id="pct">0%</div><span class="note">do limite já usado</span></div>
-        <div class="meter" aria-hidden="true"><i id="bar" style="width:0"></i></div>
-        <dl>
-          <dt>Ritmo por mês</dt><dd id="ritmo">-</dd>
-          <dt>Projeção do ano</dt><dd id="proj">-</dd>
-          <dt>DAS mensal (vence dia 20)</dt><dd id="das">-</dd>
-        </dl>
-        <div class="verdict" id="verdict"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="assistente">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Atendimento por IA</p>
-      <h2 style="margin-top:10px">Pergunte como se fosse no zap.</h2>
-      <p>Exemplos do que o assistente responde. Dúvida que ele não resolve vai para uma pessoa da equipe.</p>
-    </div>
-    <div class="ask">
-      <div class="chips" id="chips"></div>
-      <div class="answer" id="answer" aria-live="polite"></div>
-    </div>
+    <ul class="zap-list">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Você não precisa baixar nenhum aplicativo. É o WhatsApp que você já usa.</span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Guia, aviso de vencimento, pagamento e dúvidas, tudo na mesma conversa.</span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Para começar, é só confirmar o seu CNPJ.</span></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5521986500690?text=Oi!%20Quero%20come%C3%A7ar%20no%20Direto%20MEI.">Chamar no WhatsApp</a>
   </div>
 </section>
 
 <section id="faq" style="padding-top:24px">
   <div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Perguntas frequentes</p><h2 style="margin-top:10px">O que todo MEI pergunta.</h2></div>
+    <div class="sec-head"><p class="eyebrow">Perguntas frequentes</p><h2 style="margin-top:10px">Dúvidas</h2></div>
     <div style="max-width:820px">
-      <details><summary>Preciso de contador para ser MEI?</summary><p>Não. O MEI precisa pagar o DAS todo mês e entregar a declaração anual até 31 de maio. É isso que a gente cuida para você.</p></details>
+      <details><summary>Preciso de contador para ser MEI?</summary><p>Não. O MEI precisa pagar o DAS todo mês e entregar a declaração anual até 31 de maio. É isso que a gente cuida para você. Um contador continua sendo importante para outras necessidades do negócio, como contratar funcionário ou crescer além do limite do MEI.</p></details>
       <details><summary>Como eu recebo a guia?</summary><p>Pelo WhatsApp, todo mês, em PDF, com Pix e código de barras. Antes de vencer, a gente avisa de novo.</p></details>
-      <details><summary>Como funciona o perdão da dívida?</summary><p>Quem tem DAS vencido até 13/10/2026 tem a parte do INSS perdoada, com juros e multa, a partir de 1º/1/2027. Não precisa pedir. Para manter, é preciso pagar em dia o DAS de janeiro a junho de 2027.</p></details>
-      <details><summary>E se eu atrasar uma guia depois do perdão?</summary><p>O perdão é cancelado e a dívida volta toda. Por isso a gente manda a guia e avisa antes de vencer.</p></details>
-      <details><summary>Estou com DAS atrasado ou CNPJ inapto. E agora?</summary><p>Chame no WhatsApp. A gente vê a sua situação e explica o que fazer. Se a dívida venceu até 13/10/2026, ela entra no perdão.</p></details>
       <details><summary>Quem faz a minha declaração anual?</summary><p>A gente faz com você. Só precisamos saber quanto você faturou no ano.</p></details>
-      <details><summary>Vocês emitem nota fiscal?</summary><p>Ainda não emitimos a nota por você, mas explicamos o passo a passo pelo WhatsApp.</p></details>
-      <details><summary>Vocês substituem um contador?</summary><p>Não. Cuidamos da rotina do MEI: guia, aviso e declaração. Se você precisar de contador, por exemplo ao contratar funcionário ou passar do limite, a gente indica.</p></details>
-      <details><summary>Meus dados estão seguros?</summary><p>Usamos só o que é preciso para gerar a sua guia. Você só recebe mensagens se escrever primeiro, e para parar basta escrever SAIR.</p></details>
-      <details><summary>Posso cancelar quando quiser?</summary><p>Sim. Não tem fidelidade nem multa. É só avisar no WhatsApp.</p></details>
+      <details><summary>Vocês emitem nota fiscal?</summary><p>Ainda não. Cuidamos da guia e da declaração. Se tiver dúvida de como emitir a nota, pergunte pelo WhatsApp.</p></details>
     </div>
   </div>
 </section>
@@ -501,9 +442,6 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
     guia:[['in','Oi, Marcos! A guia do DAS de outubro já está pronta.',''],
           ['in','<span class="pdf"><svg aria-hidden="true"><use href="#i-pdf"/></svg><span><b>DAS-outubro-2026.pdf</b><em>R$ 86,05 · vence 23/11</em></span></span>O dia 20 é feriado, então vence só na segunda, 23/11. Pix ou código de barras no PDF.',''],
           ['me','Valeu, vou pagar hoje','']],
-    perdao:[['me','Tenho DAS atrasado de 2024. Vai ser perdoado?',''],
-            ['in','Se o vencimento foi até 13/10/2026, a parte do INSS é perdoada a partir de 1º/1/2027. Não precisa pedir.',''],
-            ['in','Para manter, é só pagar em dia o DAS de janeiro a junho de 2027. Eu mando cada guia e aviso antes de vencer.','']],
     fat:[['in','Marcos, quanto você faturou em outubro? Pode mandar só o número.',''],
          ['me','9.800','' ],
          ['in','Anotado. Neste ano você está em R$ 71.400, cerca de 65% do limite. Seguimos de olho.','']],
@@ -527,47 +465,6 @@ details summary{min-height:48px;align-items:center;font-size:1.15rem}
     document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',t===b)});
     cena(b.dataset.k);
   });
-
-  /* calculadora */
-  var meses=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-  var sm=document.getElementById('mes');
-  meses.forEach(function(n,i){var o=document.createElement('option');o.value=i+1;o.textContent=n;sm.appendChild(o)});
-  sm.value=6;
-  var LIM=110000;
-  function calc(){
-    var mes=+sm.value,fat=Math.max(0,+document.getElementById('fat').value||0),das=+document.getElementById('tipo').value;
-    var ritmo=fat/mes,proj=ritmo*12,pct=fat/LIM*100,r=proj/LIM;
-    document.getElementById('pct').textContent=Math.round(pct)+'%';
-    var bar=document.getElementById('bar');bar.style.width=Math.min(100,pct)+'%';
-    bar.className=r>1?'bad':(r>=.8?'warn':'');
-    document.getElementById('ritmo').textContent=brl(ritmo);
-    document.getElementById('proj').textContent=brl(proj);
-    document.getElementById('das').textContent=brl(das);
-    var v=document.getElementById('verdict'),t,c='';
-    if(fat>LIM){t='Você já passou de R$ 110 mil. Passar do limite leva à migração para ME e, se for muito acima, o efeito pode ser retroativo. Indicamos um contador parceiro.';c='bad'}
-    else if(r>1.2){t='Pelo ritmo atual, você passa muito do limite neste ano. Indicamos um contador parceiro para planejar a mudança.';c='bad'}
-    else if(r>1){var m=ritmo>0?Math.ceil(LIM/ritmo):12;t='Pelo ritmo atual, você passa do limite por volta de '+meses[Math.min(11,m-1)]+'.';c='bad'}
-    else if(r>=.8){t='Você está perto do limite. Vale acompanhar o faturamento todo mês.';c=''}
-    else{t='Dentro do limite pelo ritmo atual.';c='ok'}
-    v.textContent=t;v.className='verdict '+c;
-  }
-  ['tipo','mes','fat'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
-  calc();
-
-  /* assistente (exemplos) */
-  var qa=[
-    ['Como funciona o perdão da dívida?',['Quem tem DAS vencido até 13/10/2026 tem a parte do INSS perdoada, com juros e multa, a partir de 1º/1/2027. Não precisa pedir.','Para manter, é preciso pagar em dia o DAS de janeiro a junho de 2027. Se atrasar uma guia, a dívida volta toda.']],
-    ['O que eu preciso mandar para começar?',['Só o seu CNPJ, pelo WhatsApp. Se não souber, a gente ajuda a achar.','Depois a guia chega todo mês.']],
-    ['Quando vence o DAS?',['Todo dia 20. Se cair em fim de semana ou feriado, passa para o próximo dia útil. O DAS de outubro de 2026 vence em 23/11, porque o dia 20 é feriado.','Os valores de 2026 são R$ 82,05 (comércio), R$ 86,05 (serviços) e R$ 87,05 (os dois).']],
-    ['Contratei um ajudante. E agora?',['Contratar funcionário muda regras do MEI, e o limite é de até 2 empregados.','Esse caso vai para uma pessoa da equipe, que conversa com você e, se precisar, indica um contador parceiro.']]
-  ];
-  var chips=document.getElementById('chips'),ans=document.getElementById('answer');
-  function show(i){
-    chips.querySelectorAll('.chip').forEach(function(c,j){c.setAttribute('aria-pressed',i===j)});
-    ans.innerHTML='<b>'+qa[i][0]+'</b>'+qa[i][1].map(function(p){return '<p>'+p+'</p>'}).join('');
-  }
-  qa.forEach(function(q,i){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=q[0];b.addEventListener('click',function(){show(i)});chips.appendChild(b)});
-  show(0);
 
   /* cadastro: abre o WhatsApp com a mensagem pronta */
   var WHATSAPP='5521986500690';  /* número com DDI e DDD, só dígitos. Ex.: 5521999999999 */
